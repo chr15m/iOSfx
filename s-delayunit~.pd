@@ -1,4 +1,4 @@
-#N canvas 497 297 455 342 10;
+#N canvas 495 287 455 342 10;
 #X obj 140 11 inlet~;
 #X obj 169 271 outlet~;
 #X obj 210 188 +~;
@@ -23,6 +23,7 @@
 #X obj 225 42 r \$0/length;
 #X obj 2 322 sssad/auto \$0/feedback \$1/feedback;
 #X obj 3 300 sssad/auto \$0/length \$1/length;
+#X obj 170 66 r \$1/ms;
 #X connect 0 0 2 0;
 #X connect 2 0 10 0;
 #X connect 3 0 2 1;
@@ -37,4 +38,5 @@
 #X connect 17 0 9 0;
 #X connect 18 0 6 0;
 #X connect 19 0 7 0;
+#X connect 22 0 9 0;
 #X coords 0 0 1 1 120 80 1 0 0;
