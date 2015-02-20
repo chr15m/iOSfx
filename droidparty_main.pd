@@ -1,6 +1,6 @@
-#N struct 1023template-marker float a float b;
-#N canvas 840 61 321 190 10;
-#N canvas 17 295 1501 618 main 1;
+#N struct 1020template-marker float a float b;
+#N canvas 838 51 321 190 10;
+#N canvas 15 285 1501 618 main 1;
 #X obj 1308 21 r pad;
 #X obj 1308 43 unpack f f;
 #X obj 1308 105 sel -1;
@@ -91,7 +91,7 @@
 #X connect 10 0 7 0;
 #X connect 14 0 1 0;
 #X restore 50 306 pd filter;
-#N canvas 721 100 747 697 catcher 0;
+#N canvas 720 95 747 697 catcher 0;
 #X obj 251 26 r down;
 #X obj 251 48 change;
 #X obj 187 126 tabwrite~ snippet;
@@ -168,7 +168,7 @@
 #X connect 37 0 36 1;
 #X connect 38 0 2 0;
 #X restore 475 305 pd catcher;
-#N canvas 2 48 450 635 ringmod 0;
+#N canvas 2 50 450 635 ringmod 0;
 #X obj 64 214 *~;
 #X obj 79 192 osc~;
 #X obj 172 342 *~ 0;
@@ -220,7 +220,7 @@
 #X connect 22 0 2 0;
 #X connect 23 0 2 0;
 #X restore 770 309 pd ringmod;
-#N canvas 280 48 576 854 reverb 0;
+#N canvas 280 50 576 854 reverb 0;
 #X obj 156 125 r fx-1;
 #X obj 81 477 *~ 0;
 #X obj 128 359 r fx-select/idx;
@@ -287,12 +287,17 @@
 #X msg 1164 92 octave \$1;
 #X obj 1164 70 r octave;
 #X obj 995 28 int;
-#X obj 326 8 loadbang;
-#X msg 326 30 \; bpm/r 180 \;;
+#X obj 266 8 loadbang;
+#X msg 266 30 \; bpm/r 180 \;;
 #X obj 276 485 noise~;
 #X obj 276 507 *~ 0.01;
 #X obj 1194 15 loadbang;
 #X msg 1194 37 -3;
+#X obj 396 63 s tick;
+#X obj 396 19 netreceive -u 4444;
+#X obj 396 41 route /tick /bpm /goodnotes;
+#X obj 449 63 s bpm/r;
+#X obj 502 63 s goodnotes;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 1 0 12 0;
@@ -340,6 +345,10 @@
 #X connect 51 0 21 0;
 #X connect 52 0 53 0;
 #X connect 53 0 35 0;
+#X connect 55 0 56 0;
+#X connect 56 0 54 0;
+#X connect 56 1 57 0;
+#X connect 56 2 58 0;
 #X restore 11 169 pd main;
 #X obj 264 140 tgl 32 0 mic-on empty empty 17 7 0 10 -262144 -1 -1
 0 1;
@@ -359,3 +368,5 @@ ringmod reverb;
 #X restore 63 169 pd crap;
 #X obj 11 6 touch 160 160 pad;
 #X obj 190 140 numberbox 64 32 bpm/r bpm 30 300 180;
+#X obj 190 102 nbx 5 14 -1e+37 1e+37 0 0 empty tick tick 0 -8 0 10
+-262144 -1 -1 0 256;
