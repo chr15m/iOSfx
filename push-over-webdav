@@ -4,5 +4,7 @@ if [ "$1" == "" ]
 then
 	echo "Usage: $0 IP-ADDRESS"
 else
-	echo "mput *" | cadaver dav://$1:8080/
+	dir=`pwd`
+	name=`basename $dir`
+	echo "mput *" | cadaver dav://$1:8080/$name
 fi
