@@ -1,4 +1,4 @@
-#N canvas 733 225 450 556 10;
+#N canvas 735 202 450 706 10;
 #X obj 12 21 r bpm;
 #X obj 12 43 expr 60000 / $f1;
 #X obj 12 65 / 12;
@@ -17,7 +17,7 @@
 #X obj 15 123 t b a a;
 #X obj 107 189 t f f;
 #X obj 134 212 > 0;
-#N canvas 2 48 450 300 synth 1;
+#N canvas 2 48 450 300 synth 0;
 #X obj 9 9 inlet;
 #X obj 11 275 outlet~;
 #X obj 200 22 r waveform/idx;
@@ -44,18 +44,22 @@
 #X connect 10 0 9 1;
 #X connect 11 0 10 0;
 #X restore 43 358 pd synth;
-#X obj 44 499 e_reverb rev1;
-#X obj 119 442 loadbang;
-#X obj 148 525 throw~ mainout-r;
-#X obj 20 525 throw~ mainout-l;
-#X msg 119 466 dry 0.5 \, wet 1 \, amp 80 \, hall 90 \, freq 8000 \,
+#X obj 44 599 e_reverb rev1;
+#X obj 119 542 loadbang;
+#X obj 148 625 throw~ mainout-r;
+#X obj 20 625 throw~ mainout-l;
+#X msg 119 566 dry 0.5 \, wet 1 \, amp 80 \, hall 90 \, freq 8000 \,
 damp 20;
-#X obj 107 367 r arp-volume;
+#X obj 71 381 r arp-volume;
 #X obj 43 403 *~;
-#X obj 43 452 vcf~ 4;
-#X obj 43 474 *~ 4;
-#X obj 79 430 mtof;
-#X obj 79 408 r arp-cutoff;
+#X obj 43 552 vcf~ 4;
+#X obj 43 574 *~ 4;
+#X obj 79 530 mtof;
+#X obj 79 412 r arp-cutoff;
+#X obj 79 434 unpack f f;
+#X obj 79 486 * 127;
+#X obj 79 508 int;
+#X obj 79 456 sel -1;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 2 0 3 1;
@@ -89,4 +93,8 @@ damp 20;
 #X connect 26 0 27 0;
 #X connect 27 0 19 0;
 #X connect 28 0 26 1;
-#X connect 29 0 28 0;
+#X connect 29 0 30 0;
+#X connect 30 0 33 0;
+#X connect 31 0 32 0;
+#X connect 32 0 28 0;
+#X connect 33 1 31 0;

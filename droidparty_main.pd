@@ -1,7 +1,8 @@
 #N struct 1023template-marker float a float b;
 #N struct 1024template-marker float a float b;
 #N struct 1025template-marker float a float b;
-#N canvas 1176 99 314 210 10;
+#N struct 1073template-marker float a float b;
+#N canvas 1176 99 316 210 10;
 #N canvas 125 92 919 618 main 1;
 #X obj 731 54 r pad;
 #X obj 731 76 unpack f f;
@@ -26,7 +27,7 @@
 #X obj 120 559 soundoutput;
 #X obj 30 461 catch~ mainout-l;
 #X obj 229 461 catch~ mainout-r;
-#N canvas 822 206 450 438 delay 0;
+#N canvas 820 196 450 438 delay 0;
 #X obj 48 125 s-delayunit~ d;
 #X obj 47 378 *~ 0;
 #X obj 344 80 s d/length;
@@ -476,7 +477,7 @@
 #X connect 23 0 20 0;
 #X connect 24 0 16 0;
 #X restore 711 361 pd snatch-event-handler;
-#N canvas 2 50 462 262 magic-freqency-converter 0;
+#N canvas 2 48 462 262 magic-freqency-converter 0;
 #X obj 138 162 u_magic-freq;
 #X obj 160 60 r goodnotes;
 #X obj 160 82 list prepend notes;
@@ -554,7 +555,7 @@
 #X connect 19 1 20 0;
 #X connect 20 0 10 0;
 #X restore 711 336 pd clip-event-handler;
-#N canvas 1205 371 450 552 tempo-tap 0;
+#N canvas 1204 366 450 552 tempo-tap 0;
 #X obj 10 10 r tap;
 #X obj 10 54 timer;
 #X obj 295 27 table tempos 8;
@@ -610,10 +611,10 @@
 #X connect 23 0 21 0;
 #X connect 24 0 23 0;
 #X restore 212 158 pd tempo-tap;
-#X msg 216 38 \; bpm/r 180 \; mic-on/r 1 \; timer-start bang \; fx-select/idx
-0 \; clip-pos pos -100 -100 \; snatch-pos pos -100 -100 \;;
 #X obj 462 267 keys-input;
 #X obj 462 308 arp;
+#X msg 216 38 \; bpm/r 180 \; mic-on/r 1 \; fx-select/idx 0 \; clip-pos
+pos -100 -100 \; snatch-pos pos -100 -100 \; arp-tune/r 0 \;;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 1 0 11 0;
@@ -642,7 +643,7 @@
 #X connect 32 0 28 0;
 #X connect 32 1 30 0;
 #X connect 32 2 31 0;
-#X connect 33 0 59 0;
+#X connect 33 0 61 0;
 #X connect 34 0 35 0;
 #X connect 35 0 20 1;
 #X connect 35 0 20 0;
@@ -673,23 +674,25 @@
 #X obj 264 97 tgl 32 0 empty down down 0 -8 0 10 -262144 -1 -1 0 1
 ;
 #X floatatom 195 108 8 0 0 2 magic magic-ms -, f 8;
-#X restore 64 90 pd crap;
+#X restore 108 88 pd crap;
 #X obj 195 160 numberbox 64 32 bpm/r bpm 30 300 180;
-#X obj 180 39 cnv 15 24 24 empty snatch-pos empty 20 12 0 14 -1 -66577
-0;
+#X obj -100 -100 cnv 15 24 24 empty snatch-pos empty 20 12 0 14 -1
+-66577 0;
 #X obj 174 46 touch 128 32 snatch;
 #X obj 7 5 touch 160 72 pad;
 #X text 173 80 snatch 1;
-#X obj 224 91 cnv 15 24 24 empty clip-pos empty 20 12 0 14 -1 -66577
+#X obj -100 -100 cnv 15 24 24 empty clip-pos empty 20 12 0 14 -1 -66577
 0;
 #X obj 174 99 touch 128 32 clip;
 #X text 173 133 clip 1;
 #X obj 174 5 taplist 128 32 fx-select-r fx-select filter delay bitcrush
 ringmod reverb;
-#X obj 153 160 bng 32 250 50 0 tap empty empty 17 7 0 10 -262144 -1
+#X obj 159 160 bng 32 250 50 0 tap empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 11 122 taplist 64 32 waveform-r waveform sqr saw;
-#X obj 85 122 hsl 64 32 0 1 0 0 arp-volume empty empty -2 -8 0 10 -262144
--1 -1 5900 1;
-#X obj 14 161 hsl 128 32 0 127 0 0 arp-cutoff empty empty -2 -8 0 10
--262144 -1 -1 9900 1;
+#X obj 11 115 taplist 64 32 waveform-r waveform sqr saw;
+#X obj 85 115 hsl 64 32 0 1 0 1 arp-volume empty empty -2 -8 0 10 -262144
+-1 -1 0 0;
+#X obj 11 160 touch 64 32 arp-cutoff;
+#X obj 85 160 hsl 64 32 -1 1 0 1 arp-tune arp-tune/r tune -2 -8 0 10
+-262144 -1 -1 3150 0;
+#X text 62 93 synth;
