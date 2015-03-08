@@ -124,7 +124,7 @@
 #X connect 20 0 21 1;
 #X connect 21 0 4 0;
 #X restore 50 308 pd filter;
-#N canvas 755 195 761 635 ringmod 0;
+#N canvas 754 190 761 635 ringmod 0;
 #X obj 64 214 *~;
 #X obj 79 192 osc~;
 #X obj 65 491 *~ 0;
@@ -191,7 +191,7 @@
 #X connect 28 0 2 0;
 #X connect 29 0 2 0;
 #X restore 270 308 pd ringmod;
-#N canvas 274 1128 641 854 reverb 1;
+#N canvas 272 1128 641 854 reverb 0;
 #X obj 156 125 r fx-1;
 #X obj 81 517 *~ 0;
 #X obj 128 399 r fx-select/idx;
@@ -612,6 +612,8 @@
 #X restore 212 158 pd tempo-tap;
 #X msg 216 38 \; bpm/r 180 \; mic-on/r 1 \; timer-start bang \; fx-select/idx
 0 \; clip-pos pos -100 -100 \; snatch-pos pos -100 -100 \;;
+#X obj 462 267 keys-input;
+#X obj 462 308 arp;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 1 0 11 0;
@@ -657,7 +659,7 @@
 #X connect 51 0 10 0;
 #X connect 53 0 48 0;
 #X connect 53 0 47 0;
-#X restore 11 169 pd main;
+#X restore 12 90 pd main;
 #X obj 269 160 tgl 32 0 mic-on mic-on/r mic 8 -8 0 10 -262144 -1 -1
 1 1;
 #N canvas 116 108 450 300 crap 0;
@@ -671,7 +673,7 @@
 #X obj 264 97 tgl 32 0 empty down down 0 -8 0 10 -262144 -1 -1 0 1
 ;
 #X floatatom 195 108 8 0 0 2 magic magic-ms -, f 8;
-#X restore 63 169 pd crap;
+#X restore 64 90 pd crap;
 #X obj 195 160 numberbox 64 32 bpm/r bpm 30 300 180;
 #X obj 180 39 cnv 15 24 24 empty snatch-pos empty 20 12 0 14 -1 -66577
 0;
@@ -686,3 +688,8 @@
 ringmod reverb;
 #X obj 153 160 bng 32 250 50 0 tap empty empty 17 7 0 10 -262144 -1
 -1;
+#X obj 11 122 taplist 64 32 waveform-r waveform sqr saw;
+#X obj 85 122 hsl 64 32 0 1 0 0 arp-volume empty empty -2 -8 0 10 -262144
+-1 -1 5900 1;
+#X obj 14 161 hsl 128 32 0 127 0 0 arp-cutoff empty empty -2 -8 0 10
+-262144 -1 -1 9900 1;
