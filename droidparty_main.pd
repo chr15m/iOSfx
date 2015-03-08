@@ -243,20 +243,20 @@
 #X connect 24 0 4 0;
 #X connect 25 0 13 0;
 #X restore 350 308 pd reverb;
-#X obj 377 99 r #osc-in;
-#X obj 377 143 s tick;
+#X obj 417 99 r #osc-in;
+#X obj 417 143 s tick;
 #X obj 120 107 *~ 0.5;
-#X obj 430 143 s bpm/r;
-#X obj 483 143 s goodnotes;
-#X obj 377 120 route /tick /bpm /goodnotes;
-#X obj 236 16 loadbang;
+#X obj 470 143 s bpm/r;
+#X obj 523 143 s goodnotes;
+#X obj 417 120 route /tick /bpm /goodnotes;
+#X obj 216 16 loadbang;
 #X obj 276 485 noise~;
 #X obj 276 507 *~ 0.01;
-#X obj 377 63 s tick;
-#X obj 377 19 netreceive -u 4444;
-#X obj 377 41 route /tick /bpm /goodnotes;
-#X obj 430 63 s bpm/r;
-#X obj 483 63 s goodnotes;
+#X obj 417 63 s tick;
+#X obj 417 19 netreceive -u 4444;
+#X obj 417 41 route /tick /bpm /goodnotes;
+#X obj 470 63 s bpm/r;
+#X obj 523 63 s goodnotes;
 #X obj 40 106 hip~ 1;
 #X obj 712 533 tabwrite~ snippet;
 #X obj 731 482 sel 1;
@@ -366,7 +366,7 @@
 #X connect 17 0 11 0;
 #X connect 18 0 6 0;
 #X restore 195 308 pd bitcrush;
-#N canvas 785 438 450 378 clipper 1;
+#N canvas 785 438 450 378 clipper 0;
 #X obj 14 12 inlet~;
 #X obj 14 345 outlet~;
 #X obj 28 292 vline~;
@@ -422,7 +422,7 @@
 #X connect 23 0 12 0;
 #X connect 24 0 23 1;
 #X restore 40 128 pd clipper;
-#N canvas 559 1346 347 379 snatch-event-handler 0;
+#N canvas 558 1341 347 379 snatch-event-handler 0;
 #X obj 126 37 unpack f f;
 #X obj 153 99 sel -1;
 #X obj 13 112 ==;
@@ -506,9 +506,9 @@
 #X connect 12 0 0 0;
 #X connect 13 0 14 0;
 #X connect 14 0 0 0;
-#X restore 379 192 pd magic-freqency-converter;
+#X restore 419 192 pd magic-freqency-converter;
 #X text 713 22 xy pad -> fx handler;
-#N canvas 925 1351 347 379 clip-event-handler 0;
+#N canvas 922 1336 347 379 clip-event-handler 0;
 #X obj 126 37 unpack f f;
 #X obj 153 99 sel -1;
 #X obj 13 112 ==;
@@ -554,9 +554,7 @@
 #X connect 19 1 20 0;
 #X connect 20 0 10 0;
 #X restore 711 336 pd clip-event-handler;
-#X msg 236 38 \; bpm/r 180 \; mic-on/r 1 \; timer-start bang \; fx-select/idx
-0 \;;
-#N canvas 1205 371 450 552 tempo-tap 1;
+#N canvas 1205 371 450 552 tempo-tap 0;
 #X obj 10 10 r tap;
 #X obj 10 54 timer;
 #X obj 295 27 table tempos 8;
@@ -611,7 +609,9 @@
 #X connect 22 0 24 0;
 #X connect 23 0 21 0;
 #X connect 24 0 23 0;
-#X restore 202 138 pd tempo-tap;
+#X restore 212 158 pd tempo-tap;
+#X msg 216 38 \; bpm/r 180 \; mic-on/r 1 \; timer-start bang \; fx-select/idx
+0 \; clip-pos pos -100 -100 \; snatch-pos pos -100 -100 \;;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 1 0 11 0;
@@ -640,7 +640,7 @@
 #X connect 32 0 28 0;
 #X connect 32 1 30 0;
 #X connect 32 2 31 0;
-#X connect 33 0 58 0;
+#X connect 33 0 59 0;
 #X connect 34 0 35 0;
 #X connect 35 0 20 1;
 #X connect 35 0 20 0;
