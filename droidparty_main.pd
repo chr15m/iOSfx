@@ -1,9 +1,9 @@
-#N struct 1023template-marker float a float b;
-#N struct 1024template-marker float a float b;
-#N struct 1025template-marker float a float b;
-#N struct 1073template-marker float a float b;
-#N canvas 1176 99 316 210 10;
-#N canvas 125 92 919 618 main 1;
+#N struct 1039template-marker float a float b;
+#N struct 1040template-marker float a float b;
+#N struct 1041template-marker float a float b;
+#N struct 1044template-marker float a float b;
+#N canvas 1048 94 316 210 10;
+#N canvas 124 87 919 618 main 1;
 #X obj 731 54 r pad;
 #X obj 731 76 unpack f f;
 #X obj 731 138 sel -1;
@@ -660,7 +660,7 @@ pos -100 -100 \; snatch-pos pos -100 -100 \; arp-tune/r 0 \;;
 #X connect 51 0 10 0;
 #X connect 53 0 48 0;
 #X connect 53 0 47 0;
-#X restore 12 90 pd main;
+#X restore 10 199 pd main;
 #X obj 269 160 tgl 32 0 mic-on mic-on/r mic 8 -8 0 10 -262144 -1 -1
 1 1;
 #N canvas 116 108 450 300 crap 0;
@@ -673,8 +673,8 @@ pos -100 -100 \; snatch-pos pos -100 -100 \; arp-tune/r 0 \;;
 #X obj 240 45 numberbox 64 32 octave/r octave -2 3 0;
 #X obj 264 97 tgl 32 0 empty down down 0 -8 0 10 -262144 -1 -1 0 1
 ;
-#X floatatom 195 108 8 0 0 2 magic magic-ms -, f 8;
-#X restore 108 88 pd crap;
+#X floatatom 195 108 8 0 0 2 magic magic-ms -;
+#X restore 64 200 pd crap;
 #X obj 195 160 numberbox 64 32 bpm/r bpm 30 300 180;
 #X obj -100 -100 cnv 15 24 24 empty snatch-pos empty 20 12 0 14 -1
 -66577 0;
@@ -691,8 +691,9 @@ ringmod reverb;
 -1;
 #X obj 11 115 taplist 64 32 waveform-r waveform sqr saw;
 #X obj 85 115 hsl 64 32 0 1 0 1 arp-volume empty empty -2 -8 0 10 -262144
--1 -1 0 0;
+-1 -1 3600 0;
 #X obj 11 160 touch 64 32 arp-cutoff;
 #X obj 85 160 hsl 64 32 -1 1 0 1 arp-tune arp-tune/r tune -2 -8 0 10
 -262144 -1 -1 3150 0;
-#X text 62 93 synth;
+#X text 12 93 synth;
+#X obj 82 80 taplist 64 32 arpfreq-r arpfreq 1 2 3 4;
